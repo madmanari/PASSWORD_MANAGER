@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base target="_top">
+<style>
+body{font-family:Arial;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.card{border:1px solid #ccc;padding:10px;border-radius:6px}
+.name{font-weight:bold}
+.hl{background:#ffeaa7}
+</style>
+</head>
+<body>
+<h2>NEH Password Manager</h2>
+
+<div id="loginBox">
+<input id="luser" placeholder="Username">
+<input id="lpass" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p id="err" style="color:red"></p>
+</div>
+
+<div id="app" style="display:none">
+<div>Logged in as <b id="who"></b> | Session: <b id="timer">100</b>s</div>
+<input id="search" placeholder="Search" onkeyup="filter()">
+<div id="list" class="grid"></div>
+</div>
+
+<script>
+let SESSION={},ALL=[],SECONDS=100,TIMER;
+
+function sortByName(d){return d.sort((a,b)=>a.name.localeCompare(b.name))}
+
+function login(){
+ err.innerText="";
+ google.script.run.withSuccessHandler(r=>{
+  if(r.error){err.innerText=r.error;return;}
+  SESSION=r;who.innerText=r.username;
+  loginBox.style.display="none";app.style.display="block";
+  startTimer();load();
+ }).login(luser.value,lpass.value);
+}
+
+function startTimer(){
+ clearInterval(TIMER);SECONDS=100;timer.innerText=SECONDS;
+ TIMER=setInterval(()=>{SECONDS--;timer.innerText=SECONDS;if(SECONDS<=0)location.reload();},1000);
+}
+
+document.addEventListener("click",()=>SECONDS=100);
+
+function load(){
+ google.script.run.withSuccessHandler(d=>{
+  ALL=sortByName(d);render(ALL);
+ }).getCredentials(SESSION.role,SESSION.username);
+}
+
+function render(d){
+ list.innerHTML="";
+ d.forEach(c=>{
+  list.innerHTML+=`<div class="card">
+   <div class="name">${c.name}</div>
+   <a href="${c.link}" target="_blank">${c.link}</a>
+   <div onclick="copy(this,'${c.username}','COPY_USERNAME','${c.name}','${c.link}')">👤 ${c.username}</div>
+   <div onclick="copy(this,'${c.password}','COPY_PASSWORD','${c.name}','${c.link}')">🔒 ******</div>
+  </div>`;
+ });
+}
+
+function filter(){
+ const q=search.value.toLowerCase();
+ render(sortByName(ALL.filter(c=>c.name.toLowerCase().includes(q)||c.link.toLowerCase().includes(q)||c.username.toLowerCase().includes(q))));
+}
+
+function copy(el,val,type,name,link){
+ navigator.clipboard.writeText(val);
+ el.classList.add("hl");setTimeout(()=>el.classList.remove("hl"),500);
+ google.script.run.logCopy(SESSION.username,type,name,link,val);
+}
+</script>
+</body>
+</html>

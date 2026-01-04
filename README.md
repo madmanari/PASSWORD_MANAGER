@@ -1,2 +1,1 @@
-# PASSWORD_MANAGER
-Simple Google Apps Script Program with Google Sheet Database to store all required url, username, password for personal use..
+# NEH Password Manager v2.4.3 (Stable Locked)

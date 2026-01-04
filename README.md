@@ -10,7 +10,11 @@ This repository represents the **locked stable baseline**.
 
 ## SCREENSHOOTS
 ![image alt](https://github.com/madmanari/PASSWORD_MANAGER/blob/79e64e3a60eebe4468ba10c773dbf3ad5eec8f48/IMG_0418.png)
-
+![image atl](https://github.com/madmanari/PASSWORD_MANAGER/blob/79e64e3a60eebe4468ba10c773dbf3ad5eec8f48/IMG_0419.png)
+![image alt](https://github.com/madmanari/PASSWORD_MANAGER/blob/79e64e3a60eebe4468ba10c773dbf3ad5eec8f48/IMG_0424.png)
+![image alt](https://github.com/madmanari/PASSWORD_MANAGER/blob/79e64e3a60eebe4468ba10c773dbf3ad5eec8f48/IMG_0420.png)
+![image alt](https://github.com/madmanari/PASSWORD_MANAGER/blob/79e64e3a60eebe4468ba10c773dbf3ad5eec8f48/IMG_0423.png)
+![image alt](https://github.com/madmanari/PASSWORD_MANAGER/blob/79e64e3a60eebe4468ba10c773dbf3ad5eec8f48/IMG_0422.png)
 
 
 ## Features

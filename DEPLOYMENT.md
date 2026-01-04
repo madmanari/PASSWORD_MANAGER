@@ -8,8 +8,8 @@
 ## Steps
 1. Open Google Apps Script
 2. Create a new project
-3. Copy `apps-script/Code.gs`
-4. Create HTML file → paste `apps-script/index.html`
+3. Copy `Code.gs`
+4. Create HTML file → paste `index.html`
 5. Update `SHEET_ID` in Code.gs
 6. Deploy → New Deployment → Web App
 7. Execute as: Me

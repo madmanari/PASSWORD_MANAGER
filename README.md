@@ -8,6 +8,11 @@
 Password Manager is a lightweight internal credential manager built on Google Sheets and Apps Script.  
 This repository represents the **locked stable baseline**.
 
+## SCREENSHOOTS
+![image alt](https://github.com/madmanari/PASSWORD_MANAGER/blob/79e64e3a60eebe4468ba10c773dbf3ad5eec8f48/IMG_0418.png)
+
+
+
 ## Features
 - Role-based access (admin / user)
 - Credential grid view (alphabetical by Name)

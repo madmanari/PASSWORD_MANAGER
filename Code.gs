@@ -1,10 +1,10 @@
-// NEH Password Manager v2.4.3 (Stable Locked)
+// Password Manager v2.4.3 (Stable Locked)
 const SHEET_ID = "REPLACE_WITH_YOUR_SHEET_ID";
 
 function doGet() {
   initializeSheets();
   return HtmlService.createHtmlOutputFromFile("index")
-    .setTitle("NEH Password Manager v2.4.3");
+    .setTitle("YOUR_NAME'S Password Manager v2.4.3");
 }
 
 function initializeSheets() {
